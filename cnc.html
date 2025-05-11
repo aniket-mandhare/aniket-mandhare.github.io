@@ -1,0 +1,224 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>cnc</title>
+        <style>
+           
+            video {
+                border: none; 
+                width: 100%;
+                height: 100%; 
+                object-fit: contain; 
+            }
+    
+          
+    
+body {
+    font-family: Arial, sans-serif;
+    font-weight: 300; 
+    margin: 0;
+    padding: 0;
+    color: #58585b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+   
+    background-image: url("");
+    background-size: contain; 
+    background-position: cover; 
+    background-repeat: repeat;
+}
+ 
+  h2 {
+            color: #333; 
+        }
+        p, h1, h2, h3, h4, h5, h6, li {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 0.02em;
+}
+
+
+h2, h3, li {
+    line-height: 1.9; 
+}
+header {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+.project {
+    display: flex;
+    flex-direction: column; 
+    background-color: #fcfcfe;
+    align-items: center; 
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 60%; 
+    margin: 2em 20%; 
+}
+.video-container {
+    display: flex; 
+    flex-direction: row;
+    width: 200%;
+    height: auto;
+    justify-content: space-between;
+
+}
+
+.video-container video {
+    flex: 1;
+    width: 50%;
+    height: auto; 
+    object-fit: contain;
+}
+
+
+.project video 
+{
+    
+    
+    width: 100%;
+    height: auto;
+    display: block; 
+}
+
+.project a {
+    display: block;
+    text-decoration: none;
+}
+
+.project img, .project video {
+    width: 50%; 
+    height: auto; 
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.project .description {
+    padding: 1em;
+    text-align: left;
+}
+
+.project-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.project-images img {
+    width: 50%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #ffffff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.big-image-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 0; 
+    width: 100%; 
+    margin: 0 auto; 
+    
+}
+
+.big-image {
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    margin: 1px 0;
+    margin-bottom: 0;
+}
+
+.small-image {
+    width: 30%;
+    height: auto; 
+}
+
+
+   
+    strong {
+        color: #000000; 
+    }
+
+    a {
+        color: #0066cc; 
+        text-decoration: none; 
+    }
+
+  
+    a:hover {
+        text-decoration: underline; 
+    }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CNC Machine</h1>
+    </header>
+
+    <main>
+        <div class="project">
+           
+              
+
+            <div class="description">
+                <p><h2><strong>CNC Milling</strong></h2></p>
+
+                
+             
+
+                <p>
+                   This <strong style="color: #000000;  font-weight: 800; font-size: 1.1em;">CNC routing machine</strong> was the first electro-mechanical project I developed all by
+myself. I used to do a lot of freelance CAD and manufacturing drawings for companies
+at the time and felt it would be useful have some way to make physical prototypes in-
+house. In retrospect, it might have been easier to just buy a small 3d-printer, but those
+were difficult to come by and even riskier to operate back in 2019. Building this CNC,
+though, really helped me develop comfort of working on electro-mechanical systems.</p>
+<p>The CNC has a workspace of <strong style="color: #000000; font-weight: 800; font-size: 1.1em; text-decoration: underline;">500mm X 300mm X 80mm</strong>, with a frame built out of V-slot
+aluminum extrusions of various sizes. The table itself it a MDF panel and has a grid of
+holes with threaded inserts for mounting work. The motion is provided by a toothed belt-
+pulley system driven by NEMA 23 stepper motors. </p>
+<p>I anticipated that the Z-axis would
+need more rigitdity, so I chose to go with a <strong style="color: #000000; font-weight: 800; font-size: 1.1em; text-decoration: underline;">lead-screw motion system</strong> for that.
+Additionally, using a lead screw allowed finer resolution on the Z axis. This was all
+controlled by grbl firmware, running off of an Arduino UNO fitted with a CNC shield.
+I mostly used the router for cutting MDF, polyethylene and acrylic parts. The spindle
+mount went through various design iterations after I bought my own Ender 3 a few years
+later. My most difficult projects on this were a PCB fixture with a rather complex contour
+and milling a cast aluminum plate for the bed of my <strong style="color: #000000; font-weight: 800; font-size: 1.1em;">Voron 2.4 </strong> (this one pushed my
+machine to the limits). Some pics and micro-machining footage below!
+                </p><br>
+            
+               
+        
+    </div>
+    </main>
+
+   
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Mandhare - Portfolio</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 70px; 
+    background-color: #cbcbcc;
+    color: #333;
+}
+
+header {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+}
+.foreground-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    width: 80%;
+}
+nav {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+nav li {
+    margin: 10px;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+header h1 {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #070000;
+}
+.resume {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.resume:hover {
+    background-color: #0056b3;
+}
+
+/* PROJECTS */
+section#projects {
+    padding: 2em;
+    background-color: #fff;
+    text-align: center;
+}
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    padding: 2em;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.project {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+.project:hover {
+    transform: scale(1.02);
+}
+.project a {
+    display: block;
+    text-decoration: none;
+    position: relative;
+}
+.project img,
+.project video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+.project .description {
+    padding: 1em;
+    text-align: left;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+.project .subdescription {
+    padding: 0.5em 1em;
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+}
+.hover-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+.project:hover .hover-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+section#skills {
+    padding: 1em;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 3em;
+    margin: 1em auto;
+    max-width: 1200px;
+}
+
+.skill {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; 
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.skill .description {
+    font-size: 0.85em;
+}
+
+
+
+#research {
+    background-color: #f9f9f9;
+    padding: 3em 1em;
+    text-align: center;
+}
+
+.research-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+}
+
+.research-video {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    background-image: url('https://img.youtube.com/vi/hBNCrke3qqk/hqdefault.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1 1 300px;
+}
+
+.video-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover .play-button {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.research-description {
+    text-align: left;
+    padding: 1em;
+    flex: 1 1 300px;
+    max-width: 600px;
+}
+
+.research-description h3 a {
+    color: #004080;
+    text-decoration: none;
+}
+
+.research-description h3 a:hover {
+    text-decoration: underline;
+}
+
+.research-certificate {
+    margin-top: 1em;
+    width: 100%;
+    max-width: 470px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .research-container {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .research-video,
+    .research-description {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .play-button {
+        width: 60px;
+    }
+}
+
+section#Aboutme {
+    text-align: center;
+    padding: 2em;
+    background-color: #fff;
+}
+.aboutme-container {
+    display: inline-block;
+    max-width: 500px;
+}
+.aboutme-container img {
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+.aboutme-container div {
+    text-align: left;
+    padding: 0 1em;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects-container,
+    .skills-container,
+    .research-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .project,
+    .research {
+        width: 90%;
+    }
+
+    .skills-container {
+        gap: 1em;
+    }
+
+    .skill {
+        width: 80%;
+    }
+
+    .aboutme-container {
+        width: 90%;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#Aboutme">About Me</a></li>
+        </ul>
+    </nav>
+
+<header style="position: relative; text-align: justify ; color: white;">
+
+  <img src="media2/mech_bg.jpg" class="background-image" alt="Background" style="width: 100%; height: auto;">
+
+  <div style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1000px;
+      padding: 2em;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+  ">
+
+    <div style="text-align: left; max-width: 60%;">
+     
+      <p style="font-size: 1.1em; line-height: 1.5;">
+       I am an Electromechanical Design Engineer with hands on experience in Robotics, high torque reduction systems, closed loop actuators, sensor enabled robotic platforms and precision linear motion systems. 
+      </p>
+    </div>
+
+    <div>
+      <a href="media/Resume_AniketM.pdf" target="_blank"
+         style="background-color: #007BFF; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1em;">
+        View Resume
+      </a>
+    </div>
+
+  </div>
+</header>
+
+
+
+
+</body>
+</html>
+
+
+
+ <section id="projects">
+    <h2>Projects</h2>
+    <p><h5>Click on the images for more details</h5></p>
+    <div class="projects-container">
+
+        <div class="project">
+            <a href="walker.html">
+                <img src="media2/Steering_GIF.gif" alt="Reconfigurable Walker">
+            </a>
+            <div class="description">
+                <h3>Reconfigurable Walker</h3>
+                <div class="subdescription">
+                    <p>Graduate Thesis - Six Legged Robot, Theo Jansen Mechanism, Kinematic linkages</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="html1.html">
+                <img src="media/schvaan walk.GIF" alt="Schvaan Robot Dog">
+            </a>
+            <div class="description">
+                <h3>Schvaan Robot Dog</h3>
+                <div class="subdescription">
+                    <p>Developed a low-cost Robot Dog Schvaan. Actuator design, modelling and testing, inverse kinematics, cycloidal drive design</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="minimal.html">
+                <img src="media/minimal.jpg" alt="Minimal Robot Dog">
+            </a>
+            <div class="description">
+                <h3>Minimal Robot Dog</h3>
+                <div class="subdescription">
+                    <p>Low-cost Robot Dog, Reinforcement Learning, Linear Policy Control, force sensors</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="cnc.html">
+                <img src="media/CNC_Mill.gif" alt="3D Printer">
+            </a>
+            <div class="description">
+                <h3>DIY CNC </h3>
+                <div class="subdescription">
+                    <p>Grbl based CNC milling machine built from V-slot extrusions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="html4.html">
+                <img src="media/3dprinter.jpeg" alt="Voron 3D Printer">
+            </a>
+            <div class="description">
+                <h3>Voron 3D Printer</h3>
+                <div class="subdescription">
+                    <p>Voron 3D Printer- Trident, Voron 2.4</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <section id="research" style="padding: 2em;">
+  <h2 style="margin-bottom: 1em; text-align: center;">Publication</h2>
+
+  <div class="research-container" style="display: flex; flex-direction: column; gap: 2em;">
+
+   <div class="research-entry" style="width: 100%; border: 1px solid #ddd; padding: 1em; box-sizing: border-box; display: flex; flex-direction: row; min-height: 300px;">
+      <div class="research-video" style="flex: 1; margin-right: 1em;">
+        <a href="https://www.youtube.com/watch?v=hBNCrke3qqk" target="_blank">
+          <img class="play-button" src="https://img.icons8.com/ios-filled/100/ffffff/play-button-circled--v1.png" alt="Play" style="width: 30%; height: 40%; object-fit: fill; border-radius: 8px;">
+        </a>
+      </div>
+      <div class="research-description" style="flex: 2; display: flex; flex-direction: column; justify-content: center;">
+        <h3><a href="https://arxiv.org/pdf/2503.01102" target="_blank">Ground Contact and Reaction Force Sensing for Linear Policy Control of Quadruped Robot</a></h3>
+        <p><strong>Authors:</strong> Harshita Mhaske, Aniket Mandhare, Dr. Jidong Huang, Dr. Yu Bai</p>
+        <p>The research focuses on testing a linear policy by augmenting the observation space with contacts and ground reaction forces.</p>
+        <p><em>Accepted at ICCAR 2025</em></p>
+      </div>
+    </div>
+
+    <div class="research-entry" style="width: 100%; border: 1px solid #ddd; padding: 1em; box-sizing: border-box; display: flex; flex-direction: row; min-height: 300px;">
+      <div class="research-video" style="flex: 1; margin-right: 1em;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/g29FaMmiFfo?si=wIjyfSDW6qFjZH-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 8px; object-fit: cover;"></iframe>
+      </div>
+      <div class="research-description" style="flex: 2; display: flex; flex-direction: column; justify-content: center;">
+        <h3>Novel Reconfigurable Phase changing mechanisms for realising a spectrum of walking motions</h3>
+        <p><strong>Authors:</strong> Aniket Mandhare, Dr. Nina Robson</p>
+        <p><em>Accepted at IDETC 2025</em></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+
+              <div class="skill">
+                <img src="media/mech_img.jpg" alt="Mechanical">
+                <div class="description">
+                    <h3>Mechanical</h3>
+                    <p>CAD, CAM, FEA, GD&T, DFM, DFA, Electromechanical assembly</p>
+                </div>
+            </div>
+
+            <div class="skill">
+                
+                <img src="media/robotics.jpg" alt="Robotics">
+                <div class="description">
+                    <h3>Robotics</h3>
+                    <p>Simulations, Mechanism Design, Actuators, Sensors, Motor control, Artificial Intelligence</p>
+                </div>
+            </div>
+
+           
+
+            <div class="skill">
+                <img src="media/program.jpg" alt="Programming">
+                <div class="description">
+                    <h3>Programming</h3>
+                    <p>C++, Python</p>
+                </div>
+            </div>
+
+          
+
+            <div class="skill">
+                <img src="media/elec.jpg" alt="Electrical">
+                <div class="description">
+                    <h3>Electrical</h3>
+                    <p>PCB Layout, Soldering, wiring harness fabrication</p>
+                </div>
+            </div>
+
+            <div class="skill">
+                <img src="media/manufacturing.jpeg" alt="Manufacturing">
+                <div class="description">
+                    <h3>Manufacturing</h3>
+                    <p>3D Printing, manual milling/ turning, CNC</p>
+                </div>
+            </div>
+             <div class="skill">
+                <img src="media/Research-Keyboard.jpg" alt="Research Interest">
+                <div class="description">
+                    <h3>Research Interest</h3>
+                    <p>Robotics and AI </p>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <section id="Aboutme" style="padding: 2em;">
+  <h2 style="margin-bottom: 1em;">About Me</h2>
+  <div class="aboutme-container" style="display: flex; align-items: center; justify-content: flex-start;">
+    <div class="aniket-profile" style="display: flex; gap: 1em; align-items: center;">
+      <img src="media2/aniket_pic.jpg" style="width: 200px; border-radius: 8px;" alt="Aniket Mandhare">
+      <div style="text-align: left;">
+        <h3>Aniket Mandhare</h3>
+        <p>Email: aniketmmandhare@gmail.com</p>
+        <p>Fullerton, CA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+    
+        <footer>
+            <p>&copy; 2023 Aniket Mandhare</p
+</footer>
+</body>
+</html>
